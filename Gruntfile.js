@@ -34,7 +34,8 @@ module.exports = grunt => {
           'dist/greetings_9gag/styles.css': 'src/public/greetings_9gag/styles.scss',
           'dist/meme_builder/styles.css': 'src/public/meme_builder/styles.scss',
           'dist/random_gif/styles.css': 'src/public/random_gif/styles.scss',
-          'dist/sign_in/styles.css': 'src/public/sign_in/styles.scss'
+          'dist/sign_in/styles.css': 'src/public/sign_in/styles.scss',
+          'dist/header/styles.css': 'src/components/header/styles.scss'
         }
       }
     },
