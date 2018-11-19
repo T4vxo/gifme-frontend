@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "styles.css",
+	"sources": [
+		"../../src/public/random_gif/styles.scss"
+	],
+	"names": [],
+	"mappings": ""
+}

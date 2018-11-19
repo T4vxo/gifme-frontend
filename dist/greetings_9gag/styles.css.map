@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "styles.css",
+	"sources": [
+		"../../src/public/greetings_9gag/styles.scss"
+	],
+	"names": [],
+	"mappings": ""
+}

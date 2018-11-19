@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "styles.css",
+	"sources": [
+		"../../src/public/meme_builder/styles.scss"
+	],
+	"names": [],
+	"mappings": ""
+}
