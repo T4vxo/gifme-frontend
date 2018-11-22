@@ -16,6 +16,7 @@ module.exports = grunt => {
           relative: true,
           basePath: 'src/public',
           sections: {
+            common: '<%= components %>/head/common.html',
             header: '<%= components %>/header/index.html'
           },
           styles: {
