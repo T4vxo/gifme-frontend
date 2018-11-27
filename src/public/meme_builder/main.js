@@ -10,6 +10,8 @@ $(document).ready(() => {
                 200: function(data, jqXHR){
                     console.log(data.footer);
                     console.log(data.header);
+                    document.getElementById("b1").innerHTML = data.header;
+                    document.getElementById("b2").innerHTML = data.footer;
                 },
                 500:function(){
                     console.log("Server error");
