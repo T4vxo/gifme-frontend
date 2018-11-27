@@ -1,9 +1,0 @@
-{
-	"version": 3,
-	"file": "styles.css",
-	"sources": [
-		"../../src/components/header/styles.scss"
-	],
-	"names": [],
-	"mappings": ""
-}

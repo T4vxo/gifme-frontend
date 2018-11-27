@@ -43,6 +43,15 @@ module.exports = grunt => {
     watch: {
       tasks: ['clean', 'htmlbuild', 'sass'],
       files: ['src/**/*.html', 'src/**/*.scss']
+    },
+    uglify: {
+      defaultTarget: {
+        files: {
+          'dist/greetings_9gag/main.js': ['src/public/greetings_9gag/main.js'],
+          'dist/random_gif/main.js': ['src/public/random_gif/main.js'],
+          'dist/meme_builder/main.js': ['src/public/meme_builder/main.js']
+        }
+      }
     }
   });
 
@@ -50,5 +59,6 @@ module.exports = grunt => {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.registerTask('default', ['clean', 'htmlbuild', 'sass']);
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.registerTask('default', ['clean', 'htmlbuild', 'sass', 'uglify:defaultTarget']);
 }
