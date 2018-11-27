@@ -1,4 +1,4 @@
-$(document).ready(() => {
+$(document).ready(( ) => {
     
     $(".btn").on("click", function(){
         var ser = document.getElementById("input").value;
