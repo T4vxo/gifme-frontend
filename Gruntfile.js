@@ -17,7 +17,8 @@ module.exports = grunt => {
           basePath: 'src/public',
           sections: {
             common: '<%= components %>/head/common.html',
-            header: '<%= components %>/header/index.html'
+            header: '<%= components %>/header/index.html',
+            meme_display: '<%= components %>/meme_display/index.html',
           },
           styles: {
             styles: 'styles.css'
