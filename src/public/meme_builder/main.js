@@ -1,6 +1,7 @@
 $(document).ready(() => {
     $(".btn").on("click", function(){
         var ser = document.getElementById("input").value;
+        //kallar på api för att fp två stringar
         $.ajax({
             method:"GET",
             dataType: "json",
@@ -10,6 +11,7 @@ $(document).ready(() => {
                 200: function(data, jqXHR){
                     console.log(data.footer);
                     console.log(data.header);
+                    //skriver ut header och footer
                     document.getElementById("gt1").innerHTML = data.header;
                     document.getElementById("gt2").innerHTML = data.footer;
                 },
@@ -19,6 +21,7 @@ $(document).ready(() => {
                 }
             }
         })
+        //kallar api för gif addrassen
         $.ajax({
             method:"GET",
             dataType: "json",
