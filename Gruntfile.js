@@ -50,7 +50,8 @@ module.exports = grunt => {
         files: {
           'dist/greetings_9gag/main.js': ['src/public/greetings_9gag/main.js'],
           'dist/random_gif/main.js': ['src/public/random_gif/main.js'],
-          'dist/meme_builder/main.js': ['src/public/meme_builder/main.js']
+          'dist/meme_builder/main.js': ['src/public/meme_builder/main.js'],
+          'dist/sign_in/main.js': ['src/public/sign_in/main.js']
         }
       }
     }
