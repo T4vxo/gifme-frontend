@@ -10,8 +10,8 @@ $(document).ready(() => {
                 200: function(data, jqXHR){
                     console.log(data.footer);
                     console.log(data.header);
-                    document.getElementById("b1").innerHTML = data.header;
-                    document.getElementById("b2").innerHTML = data.footer;
+                    document.getElementById("gt1").innerHTML = data.header;
+                    document.getElementById("gt2").innerHTML = data.footer;
                 },
                 500:function(){
                     console.log("Server error");
@@ -19,7 +19,21 @@ $(document).ready(() => {
                 }
             }
         })
-       
+        $.ajax({
+            method:"GET",
+            dataType: "json",
+            url: "http://localhost:8080/api/radgif/gif/" + ser,
+            crossDomain: true,
+            statusCode: {
+                200: function(data, jqXHR){
+                    console.log(data.url);
+                    document.getElementById("gifMeme").src = data.url;
+                },
+                500:function(){
+                    console.log("Server error");
+                }
+            }
+        })
 
 
         
