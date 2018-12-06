@@ -1,5 +1,7 @@
 $(document).ready(() => {
+    console.log("start");
     $(".btn").on("click", function(){
+        console.log("click start");
         var ser = document.getElementById("input").value;
         //kallar på api för att fp två stringar
         $.ajax({
@@ -8,7 +10,7 @@ $(document).ready(() => {
             url: "http://localhost:8080/api/memebuilder/text/random?seek=" + ser,
             crossDomain: true,
             statusCode: {
-                200: function(data, jqXHR){
+                200: function(data){
                     console.log(data.footer);
                     console.log(data.header);
                     //skriver ut header och footer
@@ -29,7 +31,7 @@ $(document).ready(() => {
             url: "http://localhost:8080/api/randgif/gif/" + ser,
             crossDomain: true,
             statusCode: {
-                200: function(data, jqXHR){
+                200: function(data){
                     console.log(data.url);
                     document.getElementById("gifMeme").src = data.url;
                 },
