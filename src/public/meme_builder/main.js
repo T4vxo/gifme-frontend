@@ -17,6 +17,7 @@ $(document).ready(() => {
                 },
                 500:function(){
                     console.log("Server error");
+                    alert("we cant find any text about " + ser);
 
                 }
             }
@@ -25,7 +26,7 @@ $(document).ready(() => {
         $.ajax({
             method:"GET",
             dataType: "json",
-            url: "http://localhost:8080/api/radgif/gif/" + ser,
+            url: "http://localhost:8080/api/randgif/gif/" + ser,
             crossDomain: true,
             statusCode: {
                 200: function(data, jqXHR){
@@ -34,6 +35,7 @@ $(document).ready(() => {
                 },
                 500:function(){
                     console.log("Server error");
+                    alert("we cant find any gif about " + ser);
                 }
             }
         })
