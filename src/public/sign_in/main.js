@@ -24,16 +24,29 @@ function checkAuthCode() {
 /**
  * Fetches user data.
  * @param {string} clientCode Auth code returned from GitHub.
- * @param {(data: any) => void} cb Callback, if fetch succeeded.
+ * @param {(authToken: string) => void} cb Callback, if fetch succeeded.
  * @param {(error: any) => void} errorCb Callback, if fetch failed or user was unauthoized.
  */
-function fetchUser(clientCode, cb, errorCb) {
-  $.ajax(getBackendUrl('/auth', `client_code=${clientCode}`), {
+function authWithGitHub(clientCode, cb, errorCb) {
+  $.ajax(getBackendUrl('/auth/github', `client_code=${clientCode}`), {
     method: 'GET',
-    success: d => {
-      debugger;
+    statusCode: {
+      200: data => {
+        console.log("DATA: ", data);
+        let { token } = JSON.parse(data);
+        cb(token);
+      }
     }
   })
+}
+
+/**
+ * Authorizes with a token passed from the server.
+ * @param {string} token Auth token returned from the server.
+ */
+function continueWithToken(token){
+  Cookies.set('auth_token', token);
+  document.location = "../random_gif";
 }
 
 
@@ -47,7 +60,41 @@ function initAuthFlow() {
     return;
   }
 
-  fetchUser(code, () => {}, () => {});
+  authWithGitHub(code, token => { continueWithToken(token) }, () => {});
 }
 
-window.onload = initAuthFlow;
+/**
+ * Requests a auth token using basic auth.
+ * @param {string} username 
+ * @param {string} password 
+ * @param {(token: string) => void} cb 
+ * @param {(error: any) => void} errorCb 
+ */
+function authWithBasicAuth(username, password, cb, errorCb) {
+  $.ajax(getBackendUrl('/auth'), {
+    method: 'GET',
+    headers: {
+      "Authorization": `Basic ${btoa(`${username}:${password}`)}`
+    },
+    statusCode: {
+      200: data => {
+        console.log("DATA: ", data);
+        let { token } = JSON.parse(data);
+        cb(token);
+      }
+    }
+  })
+}
+
+window.onload = () => {
+  initAuthFlow();
+
+  $('#sign-in-form').on('submit', e => {
+    e.preventDefault();
+    authWithBasicAuth(
+      $('#input-username').val(),
+      $('#input-password').val(),
+      continueWithToken
+    );
+  })
+};

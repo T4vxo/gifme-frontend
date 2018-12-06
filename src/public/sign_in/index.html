@@ -1,19 +1,50 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Sign in - GIFME</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="main.js"></script>
-  <link rel="stylesheet" href="styles.css"></script>
-  
+  <link rel="stylesheet" href="styles.css">
+  </script>
+
   <!-- build:section common -->
   <!-- /build -->
 </head>
+
 <body>
   <main>
-    <a href="https://github.com/login/oauth/authorize?client_id=f9eb926c89f1a44655a3" id="authorize-github">Sign in with GitHub</a>
+    <div>
+      <a href="https://github.com/login/oauth/authorize?client_id=f9eb926c89f1a44655a3" id="authorize-github">
+        Sign in with GitHub
+      </a>
+
+      <form id="sign-in-form">
+        
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label for="input-username" class="label">Username</label>
+          </div>
+          <div class="field-body">
+            <input id="input-username" class="input" type="text">
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label for="input-password" class="label">Password</label>
+          </div>
+          <div class="field-body">
+            <input id="input-password" class="input" type="text">
+          </div>
+        </div>
+
+        <button class="button is-primary">Sign in already!</button>
+      </form>
+    </div>
   </main>
 </body>
+
 </html>
