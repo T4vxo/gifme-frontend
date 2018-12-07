@@ -1,0 +1,25 @@
+.gifImg {
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    top: 0;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    max-width: unset;
+    max-height: unset;
+    min-width: unset;
+    min-height: unset;
+}
+
+.searchBar input[type=text] {
+    padding-left: 3%;
+    height: 10vh;
+    width: 90vw;
+}
+
+.searchBar button {
+    float: right;
+    height: 10vh;
+    width: 8vw;
+}
