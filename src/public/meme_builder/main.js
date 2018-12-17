@@ -7,7 +7,7 @@ $(document).ready(() => {
         $.ajax({
             method:"GET",
             dataType: "json",
-            url: "http://localhost:8080/api/memebuilder/text/random?seek=" + ser,
+            url: getBackendUrl("memebuilder/text/random", "seek=" + ser),
             crossDomain: true,
             statusCode: {
                 200: function(data){
@@ -28,7 +28,7 @@ $(document).ready(() => {
         $.ajax({
             method:"GET",
             dataType: "json",
-            url: "http://localhost:8080/api/randgif/gif/" + ser,
+            url: getBackendUrl("randgif/gif/" + ser),
             crossDomain: true,
             statusCode: {
                 200: function(data){
